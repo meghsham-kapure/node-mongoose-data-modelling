@@ -1,0 +1,17 @@
+{
+  "name": "node02-mongoose-data-modelling",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node ./src/main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongoose": "^9.1.1"
+  }
+}
