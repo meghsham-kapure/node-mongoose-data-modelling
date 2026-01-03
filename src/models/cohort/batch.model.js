@@ -39,7 +39,7 @@ const batchSchema = new mongoose.Schema(
     ],
   },
 
-  { timestamps: true }
+  { timestamps: true },
 );
 
 export const Batch = mongoose.model("Batch", batchSchema);

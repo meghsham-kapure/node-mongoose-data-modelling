@@ -1,10 +1,19 @@
-// import mongoose from "mongoose";
+import mongoose from "mongoose";
 
-// const NoteSchema = new mongoose.Schema({
-//     createdAt : {
-//         type : mongoose.Schema.Type.ObjectId,
-//         reference : "Note   "
-//     }
-// }, {timestamps : "true"});
+const noteSchema = new mongoose.Schema(
+  {
+    description: {
+      type: String,
+      trim: true,
+      maxlength: 2000,
+      default: "",
+      select: false,
+    },
+  },
+  {
+    timestamps: true,
+    _id: false,
+  }
+);
 
-// add note in to do app
+export default noteSchema;

@@ -1,28 +1,34 @@
 import mongoose from "mongoose";
+import noteSchema from "./note.schema.js";
 
 const todoSchema = new mongoose.Schema(
   {
     content: {
       type: String,
-      required: [true, "Name is required"],
+      required: [true, "Todo must have content"],
+      trim: true,
     },
     color: {
       type: String,
-      required: [true, "Name is required"],
       default: "yellow",
     },
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
+      required: true,
     },
-    subToDo: [
+
+    note: {
+      type: noteSchema,
+    },
+
+    subTodos: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "SUbToDO",
+        ref: "SubToDo",
       },
-    ], // Arrays  of Sub-To-Do-es
+    ], // Array of Sub-To-Do-es
   },
-
   { timestamps: true }
 );
 
