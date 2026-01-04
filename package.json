@@ -1,16 +1,17 @@
 {
-  "name": "node02-mongoose-data-modelling",
+  "name": "node-mongoose-data-modelling",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "dev": "node ./src/main.js"
+    "dev": "node ./src/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
+    "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "mongoose": "^9.1.1"
   }
