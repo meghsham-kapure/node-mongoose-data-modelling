@@ -5,17 +5,25 @@ const todoSchema = new mongoose.Schema(
   {
     content: {
       type: String,
-      required: [true, "Todo must have content"],
+      required: [true, "Todo content is required"],
       trim: true,
+      minlength: [1, "Todo content cannot be empty"],
+      maxlength: [1000, "Todo content cannot exceed 1000 characters"],
     },
     color: {
       type: String,
+      trim: true,
       default: "yellow",
+      enum: {
+        values: ["YELLOW", "RED", "BLUE", "GREEN", "PURPLE"],
+        message:
+          "Invalid Color, Allowed Color Values ['YELLOW', 'RED', 'BLUE', 'GREEN', 'PURPLE']",
+      },
     },
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
-      required: true,
+      required: [true, "Todo must belong to a user"],
     },
 
     note: {
@@ -27,9 +35,9 @@ const todoSchema = new mongoose.Schema(
         type: mongoose.Schema.Types.ObjectId,
         ref: "SubToDo",
       },
-    ], // Array of Sub-To-Do-es
+    ],
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 export const Todo = mongoose.model("ToDo", todoSchema);
